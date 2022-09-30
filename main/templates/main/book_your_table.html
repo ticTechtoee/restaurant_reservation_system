@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-12 mx-auto">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="form-group row">
+                    <div class="col-sm-3">
+                        <label for="nmbr_of_guests">Select the Number of Guests</label>
+                        <input type="number" class="form-control" name="nmbr_of_guests" id="id_nmbr_of_guests">
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="get_restaurant_name">Select the Restaurant</label>
+                        <select name="get_restaurant_name" id="id_restaurant_name" class="form-control">
+                            <option value selected>Select the Name</option>
+                            {% for data in restaurant_name %}
+                            <option value="{{data.name}}">{{data.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="select_date">Select the Date</label>
+                        <input type="date" class="form-control" name="select_date" id="id_select_date">
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="select_date">Time</label>
+                        <input type="time" class="form-control" name="select_time" id="id_select_time">
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="submit_button">Click Here</label>
+                        <button type="submit" name="submit_button" id="id_submit_button" class="btn btn-success form-control">Submit</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

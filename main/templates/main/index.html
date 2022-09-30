@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<table class="table table-success table-striped">
+
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Number of Guests</th>
+            <th scope="col">Restaurant Name</th>
+            <th scope="col">Selected Time</th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        {% for data in Table_data %}
+        <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{data.Name}}</td>
+            <td>{{data.Restaurant}}</td>
+            <td>{{data.Booking_time}}</td>
+            <td><a href="{% url 'cancel_booking' data.id %}">Cancel Booking</a></td>
+  
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
